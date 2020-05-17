@@ -33,9 +33,7 @@ class _DicePageState extends State<DicePage> {
           Expanded(
             child: FlatButton(
               onPressed: (){
-                setState(() {
-                  leftDiceNum = Random().nextInt(6) + 1;
-                });
+                diceRoll();
               },
               child: Image.asset('images/dice$leftDiceNum.png'),
             ),
@@ -45,9 +43,7 @@ class _DicePageState extends State<DicePage> {
             child: FlatButton(
               child: Image.asset('images/dice$rightDiceNum.png'),
               onPressed: (){
-                setState(() {
-                  rightDiceNum = Random().nextInt(6) + 1;
-                });
+                  diceRoll();
               },
             ),
           ),
@@ -55,8 +51,13 @@ class _DicePageState extends State<DicePage> {
       ),
     );
   }
+
+  void diceRoll()
+  {
+    setState(() {
+      leftDiceNum = Random().nextInt(6) + 1;
+      rightDiceNum = Random().nextInt(6) + 1;
+    });
+  }
 }
 
-//class DicePage extends StatelessWidget {
-  
-//}
